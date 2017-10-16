@@ -1,0 +1,38 @@
+{
+  "name": "custom-update",
+  "version": "0.0.1",
+  "description": "Depends on YOUR condition to do YOUR update. Fast and light.",
+  "main": "./src/cu",
+  "bin": {
+    "custom-update": "./src/custom-update",
+    "cu": "./src/cu"
+  },
+  "files": [
+    "src/cu",
+    "src/custom-update"
+  ],
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poppinlp/custom-update.git"
+  },
+  "keywords": [
+    "check",
+    "update",
+    "upgrade",
+    "version",
+    "config"
+  ],
+  "author": "PoppinL <poppinlp@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/poppinlp/custom-update/issues"
+  },
+  "homepage": "https://github.com/poppinlp/custom-update#readme",
+  "devDependencies": {
+    "eslint": "4.7.2",
+    "eslint-config-handsome": "0.2.8"
+  }
+}

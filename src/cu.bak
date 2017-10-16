@@ -1,0 +1,47 @@
+#!/usr/bin/env node
+
+const
+	path = require('path'),
+	fs = require('fs');
+const
+	minimist = require('minimist'),
+	updateNotifier = require('update-notifier');
+
+// Notify update
+updateNotifier({
+	pkg: require(path.join(__dirname, '../package.json')),
+	updateCheckInterval: 1000 * 60 * 60 * 24 * 7 // 7 days
+}).notify({
+	defer: false,
+	isGlobal: false
+});
+
+const
+	BOOL_LIST = ['global', 'upgrade', 'dev', 'help'],
+	argv = minimist(process.argv.slice(2), {
+		boolean: BOOL_LIST,
+		string: ['filter'],
+		alias: {
+			global: 'g',
+			upgrade: 'u',
+			dev: 'd',
+			filter: 'f',
+			help: 'h'
+		},
+		default: {
+			global: false,
+			upgrade: false,
+			dev: false,
+			filter: '',
+			help: false
+		}
+	});
+
+const help = () => {
+	console.log(fs.readFileSync(path.join(__dirname, 'help.txt'), 'utf8'));
+};
+
+if (argv.update) {
+} else {
+	help();
+}

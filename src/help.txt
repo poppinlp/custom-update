@@ -1,0 +1,8 @@
+Usage: cu [opts]
+
+	-f, --filter
+	-g, --global
+	-u, --upgrade
+	-d, --dev
+	-v, --version
+	-h, --help

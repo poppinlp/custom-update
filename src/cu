@@ -1,0 +1,37 @@
+#! /usr/bin/env bash
+
+curVersionPath='.depVersion'
+
+function echoHelp {
+cat << EOL
+Custom Update - Depends on YOUR condition to do YOUR update.
+
+usage: ./cu [arguments]
+   or: ./custom-update [arguments]
+
+Arguments:
+	update
+EOL
+}
+
+case "$1" in
+	"update" )
+		newVersion=$(< $2)
+
+		if [ -f $curVersionPath ]; then
+			curVersion=$(< $curVersionPath)
+		else
+			curVersion=0
+		fi
+
+		if [ $newVersion -gt $curVersion ]; then
+			echo 'Start update dependencies...'
+			$3
+			echo $newVersion > $curVersionPath
+			echo 'Update dependencies success!'
+		fi
+		;;
+	* )
+		echoHelp
+	;;
+esac

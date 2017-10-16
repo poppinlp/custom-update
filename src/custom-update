@@ -1,0 +1,4 @@
+#! /usr/bin/env bash
+
+CUR_DIR=$(dirname $0)
+$CUR_DIR/cu $@
